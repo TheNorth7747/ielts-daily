@@ -1,0 +1,5 @@
+{
+  "type": "module",
+  "private": true,
+  "description": "只为了让 Node 把 assets/ 下的 .js 当成 ES Module 跑测试；浏览器不受影响"
+}

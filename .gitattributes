@@ -1,0 +1,11 @@
+# 统一用 LF，避免 Windows 提交的 CRLF 让 CI 里「打包产物是否同步」的比对误报
+* text=auto eol=lf
+
+# 图片按二进制处理
+*.png binary
+*.jpg binary
+*.ico binary
+
+# Windows 脚本保留 CRLF
+*.cmd text eol=crlf
+*.bat text eol=crlf

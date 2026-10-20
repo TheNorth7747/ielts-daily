@@ -1,0 +1,17 @@
+{
+  "name": "ielts-daily",
+  "version": "0.4.0",
+  "private": true,
+  "description": "每天 30 分钟的雅思学习站 · 纯前端、无后端、零运行时依赖",
+  "keywords": ["ielts", "english-learning", "spaced-repetition", "vanilla-js", "static-site"],
+  "license": "MIT",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node server.js",
+    "test": "node tests/logic.test.mjs",
+    "test:all": "node tests/logic.test.mjs && node tests/dom.test.mjs && node tests/bundle.test.mjs && node tests/flow.test.mjs && node tests/e2e.test.mjs && node tests/speech.test.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^24.1.0"
+  }
+}

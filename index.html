@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f4ee">
+<title>每日雅思 · 每天 30 分钟，把英语种成一棵树</title>
+<meta name="description" content="CET4 起步、目标雅思 6.0 的每日 30 分钟学习站。学会的词会变成成长之树上的一片叶子。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ===================== 应用外壳 ===================== -->
+<div class="app" id="app">
+
+  <!-- 左侧导航 -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none">
+          <path d="M20 34V18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M20 22c-6.5 0-10-3.4-10-9.5C16.8 12.5 20 15.6 20 22Z" fill="currentColor" opacity=".85"/>
+          <path d="M20 19c5.4 0 8.4-2.9 8.4-8C21 11 20 13.5 20 19Z" fill="currentColor" opacity=".55"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <strong>每日雅思</strong>
+        <span>30 分钟 · 慢慢长成一棵树</span>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="主导航">
+      <button class="nav-item is-active" data-view="home" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1v-8.5Z"/></svg>
+        <span>今日</span>
+      </button>
+      <button class="nav-item" data-view="tree" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-6"/><path d="M12 15c-4.4 0-7-2.6-7-7 4.4 0 7 2.4 7 7Z"/><path d="M12 12c3.8 0 6-2.2 6-6-3.8 0-6 2-6 6Z"/></svg>
+        <span>成长树</span>
+      </button>
+      <button class="nav-item" data-view="words" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h9l5 5v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/><path d="M14 4v5h5"/><path d="M8 13h8M8 17h5"/></svg>
+        <span>词库</span>
+      </button>
+      <button class="nav-item" data-view="path" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v18M18 3v18"/><path d="M6 7h12M6 13h12M6 19h12" opacity=".55"/></svg>
+        <span>路线</span>
+      </button>
+      <button class="nav-item" data-view="exam" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v3H8z"/><path d="M6 5H4v16h16V5h-2"/><path d="M8 12h8M8 16h5"/></svg>
+        <span>模考</span>
+      </button>
+    </nav>
+
+    <div class="side-bottom">
+      <div class="side-goal">
+        <div class="side-goal-top">
+          <span>目标 6.0</span>
+          <b id="side-band">4.5</b>
+        </div>
+        <div class="side-goal-bar"><i id="side-band-bar" style="width:4%"></i></div>
+        <p id="side-band-note">起点按 CET4 估算</p>
+      </div>
+      <div class="side-links">
+        <button class="link-btn" id="btn-data" type="button">备份 / 导入</button>
+        <button class="link-btn" id="btn-about" type="button">关于本站</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 右侧主区 -->
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="today-date" id="today-date">10 月 20 日 · 周二</div>
+        <div class="today-greet" id="today-greet">今天也学 30 分钟吧</div>
+      </div>
+      <div class="topbar-right">
+        <div class="pill streak-pill" id="streak-pill" title="连续学习天数">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s5 4.2 5 9a5 5 0 0 1-10 0c0-1.7.7-3 1.5-4.2C9 9.8 10 9 10 9c0 2 .8 2.7 1.3 3.1C11.9 10 12 7 12 3Z"/></svg>
+          <b id="streak-num">0</b><span>天</span>
+        </div>
+        <div class="pill xp-pill" title="累计经验值">
+          <span class="xp-dot"></span><b id="xp-num">0</b><span>成长值</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="view" id="view" tabindex="-1"><!-- 视图由 app.js 渲染 --></main>
+
+    <footer class="foot">
+      <span>数据只存在你的浏览器里 · <button class="link-inline" id="btn-data-2" type="button">备份</button></span>
+      <span class="foot-note">视觉参考了 qwerty-learner 的极简卡片与 kana-dojo 的成长感设计思路</span>
+    </footer>
+  </div>
+</div>
+
+<!-- 移动端底部导航 -->
+<nav class="tabbar" id="tabbar" aria-label="底部导航">
+  <button class="tab is-active" data-view="home" type="button"><span>今日</span></button>
+  <button class="tab" data-view="tree" type="button"><span>成长树</span></button>
+  <button class="tab" data-view="words" type="button"><span>词库</span></button>
+  <button class="tab" data-view="path" type="button"><span>路线</span></button>
+  <button class="tab" data-view="exam" type="button"><span>模考</span></button>
+</nav>
+
+<!-- ===================== 练习会话（全屏） ===================== -->
+<div class="session" id="session" hidden aria-modal="true" role="dialog" aria-label="今日练习">
+  <div class="session-top">
+    <button class="icon-btn" id="btn-quit" type="button" aria-label="退出练习">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="session-progress">
+      <div class="seg-track" id="seg-track"></div>
+      <div class="session-meta">
+        <span id="session-step">第 1 / 5 步</span>
+        <span class="dot-sep"></span>
+        <span id="session-clock" class="clock">00:00</span>
+      </div>
+    </div>
+    <div class="session-xp" id="session-xp">+0</div>
+  </div>
+  <div class="session-stage" id="stage"><!-- 练习内容 --></div>
+</div>
+
+<!-- ===================== 结算 ===================== -->
+<div class="finish" id="finish" hidden aria-modal="true" role="dialog" aria-label="今日完成">
+  <div class="finish-card" id="finish-card"></div>
+</div>
+
+<!-- ===================== 通用弹层 ===================== -->
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-card" id="sheet-card"></div>
+</div>
+
+<!-- 叶子生长提示 -->
+<div class="toast-wrap" id="toasts" aria-live="polite"></div>
+
+<script>
+// 错误收集：脚本真挂了的话，下面会把它显示出来，而不是留一个点不动的空壳
+window.__ERR = [];
+window.addEventListener('error', function (e) {
+  window.__ERR.push((e.message || '未知错误') + (e.filename ? ' @ ' + e.filename.split('/').pop() + ':' + e.lineno : ''));
+});
+</script>
+<script src="assets/app.bundle.js"></script>
+<script>
+(function () {
+  if (window.__IELTS_BOOTED) return;
+  var view = document.getElementById('view');
+  if (!view) return;
+  view.innerHTML =
+    '<div class="card card-pad" style="margin-top:20px">' +
+    '<h2 class="card-title" style="font-size:22px">脚本没跑起来</h2>' +
+    '<p style="margin-top:10px;font-size:13.5px;color:var(--ink-2);line-height:1.8">' +
+    '页面外壳加载了，但 <code>assets/app.bundle.js</code> 没执行成功，所以按钮都没反应。<br>' +
+    '① 如果是刚改过 <code>assets/</code> 下的源码：先执行 <code>node build.mjs</code> 重新打包。<br>' +
+    '② 如果 <code>app.bundle.js</code> 不存在：同上。<br>' +
+    '③ 仍然不行：打开浏览器控制台（F12）看红色报错。' +
+    '</p>' +
+    (window.__ERR && window.__ERR.length
+      ? '<pre style="background:var(--bg-2);padding:12px;border-radius:10px;margin-top:12px;font-size:12px;overflow:auto">' + window.__ERR.join('\n') + '</pre>'
+      : '') +
+    '</div>';
+})();
+</script>
+</body>
+</html>
